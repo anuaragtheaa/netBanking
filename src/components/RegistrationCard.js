@@ -43,7 +43,7 @@ class RegistrationCard extends React.Component {
                             <div className="d-flex justify-content-center">
                                 <button type="submit" className="btn btn-primary"> Create Account  </button>
                             </div>
-                            <p className="text-center">Have an account? <Link to="">Log In</Link> </p>
+                            <p className="text-center">Have an account? <Link to="/auth/login">Log In</Link> </p>
                         </form>
                     </article>
                 </div>

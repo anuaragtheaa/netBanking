@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import { fetchLogin } from '../actions';
 import LoginCard from './LoginCard';
 import RegistrationCard from './RegistrationCard';
 import './Authentication.css';
@@ -16,11 +14,6 @@ class Authentication extends React.Component {
         if (this.props.match.params.type !== prevProps.match.params.type) {
             this.setState({ login: this.props.match.params.type === 'login' })
         }
-    }
-
-    loginFormSubmit = formValues => {
-        console.log(formValues)
-        this.props.fetchLogin(formValues.username, formValues.password)
     }
 
     registrationFormSubmit = formValues => {
@@ -43,10 +36,4 @@ class Authentication extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        login: state.login
-    }
-}
-
-export default connect(mapStateToProps, { fetchLogin })(Authentication);
+export default Authentication;

@@ -5,11 +5,13 @@ export default ( state={}, action ) => {
         case 'FETCH_LOGIN':
             if(action.payload.access) {
                 localStorage.setItem('token', action.payload.access)
+                window.location.reload();
             }
             return { ...state, login: action.payload }
 
         case 'FETCH_LOGOUT':
             localStorage.setItem('token', '')
+            window.location.reload();
             return { ...state, login: '' }
 
         case 'LOGIN_STATUS':

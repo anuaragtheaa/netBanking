@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Home from './Home';
 import Authentication from './Authentication';
 import Dashboard from './Dashboard';
+import AboutUs from './AboutUs'
 import Header from './Header';
 import Footer from './Footer';
 import history from '../history';
@@ -25,6 +26,7 @@ class App extends React.Component{
                         <Route path="/home" exact component={Home} />
                         <Route path="/auth/:type" exact component={Authentication} />
                         <Route path="/dashboard" exact component={Dashboard} />
+                        <Route path="/about" exact component={AboutUs} />
                         <Footer />
                     </div>
                 </Router>

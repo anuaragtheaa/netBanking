@@ -36,6 +36,9 @@ class Header extends React.Component {
                                             <li><Link className="dropdown-item" to="#">Corporate Account</Link></li>
                                         </ul>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/about">About Us</Link>
+                                    </li>
                                 </ul>
                                 <div className="d-flex">
                                     <Link className="btn btn-outline-primary" to="/auth/registration" style={{margin:5}}>New Account</Link>
@@ -59,7 +62,7 @@ class Header extends React.Component {
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="#">About Us</Link>
+                                        <Link className="nav-link" aria-current="page" to="/about">About Us</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link" aria-current="page" to="#">Find ATM</Link>

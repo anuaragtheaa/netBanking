@@ -1,11 +1,14 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { fetchLogin } from '../actions';
 
 class LoginCard extends React.Component {
     onSubmit = formValues => {
         console.log(formValues);
-        this.props.formSubmit(formValues)
+        this.props.fetchLogin(formValues.username, formValues.password)
     }
 
     renderField = ({ input, type, label, meta, icon }) => {
@@ -43,11 +46,12 @@ class LoginCard extends React.Component {
                                 <div className="d-flex justify-content-center">
                                     <button type="submit" className="btn btn-primary">Login</button>
                                 </div>
+                                {this.props.loginResponse && this.props.loginResponse.status!==200 && <div className="alert alert-danger">{this.props.loginResponse.data.detail}</div>}
                             </form>
                         </div>
                         <div className="card-footer">
                             <div className="d-flex justify-content-center links">
-                                Don't have an account?<Link to="#">Sign Up</Link>
+                                Don't have an account?<Link to="/auth/registration">Sign Up</Link>
                             </div>
                             <div className="d-flex justify-content-center">
                                 <Link to="#">Forgot your password?</Link>
@@ -63,12 +67,20 @@ class LoginCard extends React.Component {
 const validate = formValues => {
     const errors = {};
 
-    if (!formValues.username) errors.email = 'Required'
+    if (!formValues.username) errors.username = 'Required'
 
     if (!formValues.password) errors.password = 'Required'
     else if(formValues.password.length<8) errors.password = "Min 8 char"
     return errors;
 }
+
+const mapStateToProps = state => {
+    return { 
+        loginResponse: state.auth.login
+     }
+}
+
+LoginCard = connect(mapStateToProps, { fetchLogin })(LoginCard)
 
 export default reduxForm({
     form: 'loginForm',
