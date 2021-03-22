@@ -6,6 +6,8 @@ import Home from './Home';
 import Authentication from './Authentication';
 import Dashboard from './Dashboard';
 import AboutUs from './AboutUs'
+import GoogleMap from './GoogleMap';
+import ContactUs from './ContactUs';
 import Header from './Header';
 import Footer from './Footer';
 import history from '../history';
@@ -27,6 +29,8 @@ class App extends React.Component{
                         <Route path="/auth/:type" exact component={Authentication} />
                         <Route path="/dashboard" exact component={Dashboard} />
                         <Route path="/about" exact component={AboutUs} />
+                        <Route path="/map/:find" exact component={GoogleMap} />
+                        <Route path="/contact" exact component={ContactUs} />
                         <Footer />
                     </div>
                 </Router>

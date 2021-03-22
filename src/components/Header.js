@@ -37,7 +37,16 @@ class Header extends React.Component {
                                         </ul>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/about">About Us</Link>
+                                        <Link className="nav-link" aria-current="page" to="/about">About Us</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" aria-current="page" to="/map/atm">Find ATM</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" aria-current="page" to="/map/bank">Find Bank</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" aria-current="page" to="/contact">Contact Us</Link>
                                     </li>
                                 </ul>
                                 <div className="d-flex">
@@ -65,10 +74,13 @@ class Header extends React.Component {
                                         <Link className="nav-link" aria-current="page" to="/about">About Us</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="#">Find ATM</Link>
+                                        <Link className="nav-link" aria-current="page" to="/map/atm">Find ATM</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" aria-current="page" to="#">Customer Care</Link>
+                                        <Link className="nav-link" aria-current="page" to="/map/bank">Find Bank</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" aria-current="page" to="/contact">Customer Care</Link>
                                     </li>
                                 </ul>
                                 <form className="d-flex">

@@ -40,7 +40,9 @@ class AboutUs extends React.Component {
                     <div className="row">
                         <div className="col-12 col-md-6 team-box">
                             <div className="team-img thumbnail">
-                                <img src={('/images/user.jpg')} alt="anurag pic" />
+                                <div className="d-flex justify-content-center">
+                                    <img src={('/images/user.jpg')} alt="anurag pic" />
+                                </div>
                                 <div className="team-content">
                                     <h3>Anurag</h3>
                                     <div className="border-team"></div>
@@ -56,7 +58,9 @@ class AboutUs extends React.Component {
                         </div>
                         <div className="col-12 col-md-6 team-box">
                             <div className="team-img thumbnail">
-                                <img src={('/images/user.jpg')} alt="Ritik pic" />
+                                <div className="d-flex justify-content-center">
+                                    <img src={('/images/user.jpg')} alt="ritik pic" />
+                                </div>
                                 <div className="team-content">
                                     <h3>Ritik</h3>
                                     <div className="border-team"></div>
