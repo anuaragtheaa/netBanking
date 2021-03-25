@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/netBanking/static/css/main.6324904d.chunk.css",
-    "main.js": "/netBanking/static/js/main.b27c1da4.chunk.js",
-    "main.js.map": "/netBanking/static/js/main.b27c1da4.chunk.js.map",
-    "runtime-main.js": "/netBanking/static/js/runtime-main.493ed40d.js",
-    "runtime-main.js.map": "/netBanking/static/js/runtime-main.493ed40d.js.map",
-    "static/css/2.1ea36bd5.chunk.css": "/netBanking/static/css/2.1ea36bd5.chunk.css",
-    "static/js/2.6061200f.chunk.js": "/netBanking/static/js/2.6061200f.chunk.js",
-    "static/js/2.6061200f.chunk.js.map": "/netBanking/static/js/2.6061200f.chunk.js.map",
-    "index.html": "/netBanking/index.html",
-    "static/css/2.1ea36bd5.chunk.css.map": "/netBanking/static/css/2.1ea36bd5.chunk.css.map",
-    "static/css/main.6324904d.chunk.css.map": "/netBanking/static/css/main.6324904d.chunk.css.map",
-    "static/js/2.6061200f.chunk.js.LICENSE.txt": "/netBanking/static/js/2.6061200f.chunk.js.LICENSE.txt",
-    "static/media/font-awesome.min.css": "/netBanking/static/media/fontawesome-webfont.f691f37e.woff"
+    "main.css": "/static/css/main.6324904d.chunk.css",
+    "main.js": "/static/js/main.b27c1da4.chunk.js",
+    "main.js.map": "/static/js/main.b27c1da4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c57862c4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c57862c4.js.map",
+    "static/css/2.c50a4d0d.chunk.css": "/static/css/2.c50a4d0d.chunk.css",
+    "static/js/2.6061200f.chunk.js": "/static/js/2.6061200f.chunk.js",
+    "static/js/2.6061200f.chunk.js.map": "/static/js/2.6061200f.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.c50a4d0d.chunk.css.map": "/static/css/2.c50a4d0d.chunk.css.map",
+    "static/css/main.6324904d.chunk.css.map": "/static/css/main.6324904d.chunk.css.map",
+    "static/js/2.6061200f.chunk.js.LICENSE.txt": "/static/js/2.6061200f.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.493ed40d.js",
-    "static/css/2.1ea36bd5.chunk.css",
+    "static/js/runtime-main.c57862c4.js",
+    "static/css/2.c50a4d0d.chunk.css",
     "static/js/2.6061200f.chunk.js",
     "static/css/main.6324904d.chunk.css",
     "static/js/main.b27c1da4.chunk.js"
