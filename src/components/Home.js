@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
     advertismentCarousel() {
@@ -34,15 +35,15 @@ class Home extends React.Component {
 
     infoCard() {
         return (
-            <div style={{ margin: 5 }}>
-                <div className="card" >
+            <div style={{ margin: 5}}>
+                <div className="card" style={{backgroundImage: 'url(./images/card2.jpg)'}} >
                     <div className="card-body">
                         <h5 className="card-title">Internet Banking</h5>
                         <h6 className="card-subtitle mb-2 text-muted">Log into Net Banking</h6>
                         <p className="card-text">Internet Banking is a convenient way to do banking from the comfort of your home or office. Avoid the queue or delays and try our simple and secure Internet Banking facility for an unmatched online banking experience.<br />
                         Just login today using your User ID and Password to experience ICICI Bank Internet Banking.</p>
-                        <button className="btn btn-success" style={{ margin: 5 }}>I want to log in </button>
-                        <button className="btn btn-primary" style={{ margin: 5 }}>I want to create a Account </button>
+                        <Link className="btn btn-success" to="/auth/login" style={{ margin: 5 }}>I want to log in </Link>
+                        <Link className="btn btn-primary" to="/auth/register" style={{ margin: 5 }}>I want to create a Account </Link>
                     </div>
                 </div>
             </div>
@@ -52,7 +53,7 @@ class Home extends React.Component {
     featuresCard() {
         return (
             <div style={{ margin: 5 }}>
-                <div className="card">
+                <div className="card" style={{backgroundImage: 'url(./images/card3.jpg)'}}>
                     <div className="card-body">
                         <h5 className="card-title">Features of Internet Banking</h5>
                         <p className="card-text">

@@ -1,11 +1,48 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import $ from 'jquery';
+
+import { fetchRegistration } from '../actions';
 
 class RegistrationCard extends React.Component {
+    state = { registerClicked: false }
+
     onSubmit = formValues => {
-        console.log(formValues)
-        this.props.formSubmit(formValues)
+        this.setState({registerClicked: true})
+        this.props.fetchRegistration(formValues)
+    }
+
+    componentDidUpdate() {
+        if(this.props.registration && this.props.registration.status === 201 && this.state.registerClicked) {
+            $('#registerModal').modal('show')
+        }
+    }
+
+    renderModal = () => {
+        return (
+            <div style={{backgroundColor: '#7ae88a'}}>
+            <div className="modal fade" id="registerModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Registration Successful</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            Your account created successfully. go ahead and login with your ID and Password.
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        )
     }
 
     renderField = ({input, type, label, meta, icon}) => {
@@ -35,11 +72,22 @@ class RegistrationCard extends React.Component {
                             <span className="bg-light">OR</span>
                         </p>
                         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                            <Field name="name" component={this.renderField} type="text" label="Full Name" icon="fa fa-user" />
+                            <Field name="username" component={this.renderField} type="text" label="Enter username" icon="fa fa-user" />
+                            {this.props.registration && this.props.registration.status !== 201 && this.props.registration.data.username && <div className="alert alert-danger">{this.props.registration.data.username}</div>}
+
+                            <Field name="first_name" component={this.renderField} type="text" label="Firstname" icon="fa fa-user" />
+                            {this.props.registration && this.props.registration.status !== 201 && this.props.registration.data.first_name && <div className="alert alert-danger">{this.props.registration.data.first_name}</div>}
+
+                            <Field name="last_name" component={this.renderField} type="text" label="Lastname" icon="fa fa-user" />
+                            {this.props.registration && this.props.registration.status !== 201 && this.props.registration.data.last_name && <div className="alert alert-danger">{this.props.registration.data.last_name}</div>}
+
                             <Field name="email" component={this.renderField} type="email" label="Email ID" icon="fa fa-envelope" />
-                            <Field name="phone" component={this.renderField} type="number" label="Phone Number" icon="fa fa-phone" />
+                            {this.props.registration && this.props.registration.status !== 201 && this.props.registration.data.email && <div className="alert alert-danger">{this.props.registration.data.email}</div>}
+
                             <Field name="password" component={this.renderField} type="password" label="Password" icon="fa fa-lock" />
-                            <Field name="RePassword" component={this.renderField} type="password" label="RePassword" icon="fa fa-lock"/>
+                            {this.props.registration && this.props.registration.status !== 201 && this.props.registration.data.password && <div className="alert alert-danger">{this.props.registration.data.password}</div>}
+                            
+                            <Field name="password2" component={this.renderField} type="password" label="RePassword" icon="fa fa-lock"/>
                             <div className="d-flex justify-content-center">
                                 <button type="submit" className="btn btn-primary"> Create Account  </button>
                             </div>
@@ -47,6 +95,7 @@ class RegistrationCard extends React.Component {
                         </form>
                     </article>
                 </div>
+                {this.renderModal()}
             </div>
         )
     }
@@ -55,14 +104,35 @@ class RegistrationCard extends React.Component {
 const validate = formValues => {
     const errors = {}
 
-    if(!formValues.name) errors.name="Required"
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    if(!formValues.username) errors.username="Required"
+    else if(formValues.username.length < 4) errors.username="Username too short"
+
+    if(!formValues.first_name) errors.first_name="Required"
+    else if(formValues.first_name.length < 4) errors.first_name="First name too short"
+
+    if(!formValues.last_name) errors.last_name="Required"
+
     if(!formValues.email) errors.email="Required"
-    if(!formValues.phone) errors.phone="Required"
+    else if(!re.test(formValues.email)) errors.email="Not a valid email ID"
+
     if(!formValues.password) errors.password="Required"
-    if(!formValues.RePassword) errors.RePassword="Required"
+    else if(formValues.password.length < 8) errors.password="password too short"
+
+    if(!formValues.password2) errors.password2="Required"
+    else if(formValues.password !== formValues.password2) errors.password2="Must match with password"
 
     return errors
 }
+
+const mapStateToProps = state => {
+    return {
+        registration: state.auth.registration
+    }
+}
+
+RegistrationCard = connect(mapStateToProps, { fetchRegistration })(RegistrationCard)
 
 export default reduxForm({
     form: 'registrationForm',

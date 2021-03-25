@@ -25,7 +25,7 @@ class Header extends React.Component {
                                     <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                                     </li>
-                                    <li className="nav-item dropdown">
+                                    <li className="nav-item dropdown" hidden={true}>
                                         <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                                             Account Type
                                         </Link>
@@ -62,7 +62,7 @@ class Header extends React.Component {
         else {
             return (
                 <div>
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <nav className="navbar navbar-expand-lg navbar-light " style={{backgroundColor: '#65e7aed1'}}>
                         <div className="container-fluid">
                             <Link className="navbar-brand" to="/dashboard">Net Banking</Link>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

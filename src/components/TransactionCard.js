@@ -1,23 +1,58 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 
 import { fetchPayee, transferFund } from '../actions';
 
 class TransactionCard extends React.Component {
-    onSubmit = formValues => {
-        const requestValue = {
-            sender: parseInt(this.props.profile.account),
-            amount: parseInt(formValues.amount),
-            recipient:parseInt(formValues.recipient.split('-')[1]),
-            remark: formValues.remark
-        }
-        this.props.transferFund(requestValue)
-    }
+    state = { transferClicked: false }
 
     componentDidMount() {
         this.props.fetchPayee()
         localStorage.setItem('amount', JSON.stringify(this.props.profile.amount))
+    }
+
+    componentDidUpdate() {
+        if (this.props.transaction && this.state.transferClicked) {
+            $('#successModal').modal('show'); 
+        }
+    }
+
+    renderModal = () => {
+        return (
+            <div >
+            <div className="modal fade" id="successModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content" style={{backgroundImage: 'url(./images/green.jpg)'}}>
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Payment Successful</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            Amount successfully transfered to the Receipent. 
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        )
+    }
+
+    onSubmit = formValues => {
+        const requestValue = {
+            sender: parseInt(this.props.profile.account),
+            amount: parseInt(formValues.amount),
+            recipient: parseInt(formValues.recipient.split('-')[1]),
+            remark: formValues.remark
+        }
+        this.setState({ transferClicked: true })
+        this.props.transferFund(requestValue)
     }
 
     renderField = ({ input, type, label, meta }) => {
@@ -38,7 +73,7 @@ class TransactionCard extends React.Component {
                 <label htmlFor={input.name}>{label}</label>
                 <select {...input} className="form-control" id={input.name}>
                     <option>Select</option>
-                    {this.props.payeeList.map(payee => {  return (<option key={payee.name} >{payee.name} - {payee.account}</option>)})}
+                    {this.props.payeeList.map(payee => { return (<option key={payee.name} >{payee.name} - {payee.account}</option>) })}
                 </select>
                 {meta.touched && meta.error && <div className="alert alert-danger" role="alert">{meta.error}</div>}
             </div>
@@ -46,9 +81,8 @@ class TransactionCard extends React.Component {
     }
 
     render() {
-        if(this.props.payeeList)
-        {
-            return(
+        if (this.props.payeeList) {
+            return (
                 <div className="card">
                     <div className="card-header">
                         <div className="card-title">Transfer Fund</div>
@@ -73,6 +107,7 @@ class TransactionCard extends React.Component {
                             </div>
                         </div>
                     </div>
+                    {this.renderModal()}
                 </div>
             )
         }
@@ -87,18 +122,19 @@ class TransactionCard extends React.Component {
 const validate = formValues => {
     const errors = {}
 
-    if(formValues.recipient==='Select') errors.recipient = 'Select one'
+    if (formValues.recipient === 'Select') errors.recipient = 'Select one'
 
-    if(!formValues.amount) errors.amount = 'Required'
-    else if(formValues.amount > JSON.parse(localStorage.getItem('amount'))) errors.amount = 'Get rich first'
-    else if(formValues.amount < 1) errors.amount = 'Get Smarter'
+    if (!formValues.amount) errors.amount = 'Required'
+    else if (formValues.amount > JSON.parse(localStorage.getItem('amount'))) errors.amount = 'Get rich first'
+    else if (formValues.amount < 1) errors.amount = 'Get Smarter'
 
     return errors
 }
 
 const mapStateToProps = (state) => {
     return {
-        payeeList: state.user.payee
+        payeeList: state.user.payee,
+        transaction: state.user.transaction
     }
 }
 

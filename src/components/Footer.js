@@ -3,32 +3,44 @@ import React from 'react';
 class Footer extends React.Component {
     render() {
         return (
-            <div style={{backgroundColor:'#2d3246', color:'wheat'}}>
-                <div className="row" >
-                    <div className="col" style={{margin:5}}>
-                        It's a internet Banking website where you can control your Account.<br />
-                        &#169; Net Banking. All right reserved.
-                    </div>
-                    <div className="col" style={{margin:5}}>
-                        <span>Contacts</span><br />
-                        <span>Address</span><span>Anand, Gujarat, India</span><br />
-                        <span>Phone</span><span>8965237412</span><br />
-                        <span>Email</span><span>netbanking@gmail.com</span><br />
-                    </div>
-                    <div className="col" style={{margin:5}}>
-                        <span>Links</span><br />
-                        <span>Home</span><br />
-                        <span>About</span><br />
-                        <span>Contact</span><br />
-                        <span>Help</span>
+            <div style={{backgroundColor: '#d8ece1'}} className="pb-0 mb-0 justify-content-center text-light ">
+            <footer>
+                <div className="row my-5 justify-content-center py-5">
+                    <div className="col-11">
+                        <div className="row ">
+                            <div className="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
+                                <h3 className="text-muted mb-md-0 mb-5 bold-text">Net Banking.</h3>
+                            </div>
+                            <div className="col-xl-2 col-md-4 col-sm-4 col-12" style={{color: '#536452'}}>
+                                <h6 className="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
+                                <ul className="list-unstyled">
+                                    <li>Home</li>
+                                    <li>About</li>
+                                    <li>Blog</li>
+                                    <li>Portfolio</li>
+                                </ul>
+                            </div>
+                            <div className="col-xl-2 col-md-4 col-sm-4 col-12">
+                                <h6 className="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
+                                <p className="mb-1">Anand, Gujarat</p>
+                                <p>388001, India</p>
+                            </div>
+                        </div>
+                        <div className="row ">
+                            <div className="col-xl-8 col-md-4 col-sm-4 col-auto my-md-0 mt-5 order-sm-1 order-3 align-self-end">
+                                <p className="social text-muted mb-0 pb-0 bold-text"> <span className="mx-2"><i className="fa fa-facebook" aria-hidden="true"></i></span> <span className="mx-2"><i className="fa fa-linkedin-square" aria-hidden="true"></i></span> <span className="mx-2"><i className="fa fa-twitter" aria-hidden="true"></i></span> <span className="mx-2"><i className="fa fa-instagram" aria-hidden="true"></i></span> </p><small  style={{color: '#165314'}} className="rights"><span>&#174;</span> All Rights Reserved.</small>
+                            </div>
+                            <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
+                                <h6 className="mt-55 mt-2 text-muted bold-text"><b>ANURAG</b></h6><small style={{color: '#165314'}}> <span><i className="fa fa-envelope" aria-hidden="true"></i></span> anuragibt@gmail.com</small>
+                            </div>
+                            <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
+                                <h6 className="text-muted bold-text"><b>RITIK</b></h6><small style={{color: '#165314'}}><span><i className="fa fa-envelope" aria-hidden="true"></i></span> ritik@gmail.com</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center">
-                    <i className="fa fa-facebook-square fa-lg"></i>
-                    <i className="fa fa-google-plus-square fa-lg"></i>
-                    <i className="fa fa-twitter-square fa-lg"></i>
-                </div>
-            </div>
+            </footer>
+        </div>
         )
     }
 }

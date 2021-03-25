@@ -7,6 +7,8 @@ export default  ( state={}, action ) => {
             return { ...state, payee: action.payload }
         case 'TRANSFER_FUND':
             return { ...state, transaction: action.payload }
+        case 'TRANSACTIONS':
+            return { ...state, transactions: action.payload }
         default:
             return state
     }

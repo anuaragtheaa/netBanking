@@ -9,8 +9,11 @@ export default ( state={}, action ) => {
             }
             return { ...state, login: action.payload }
 
+        case 'FETCH_REGISTRATION':
+            return { ...state, registration: action.payload }
+
         case 'FETCH_LOGOUT':
-            localStorage.setItem('token', '')
+            localStorage.setItem('token', 'a')
             window.location.reload();
             return { ...state, login: '' }
 

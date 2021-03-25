@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default axios.create({
+export const base = axios.create({
     baseURL: 'http://127.0.0.1:8000',
     headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token') ,
@@ -8,13 +8,9 @@ export default axios.create({
     }
 })
 
-axios.interceptors.request.use(
-    config => {
-        const token = localStorage.getItem('token')
-        config.headers['Authorization'] = 'Bearer ' + token
-        return config
-    },
-    error => {
-        Promise.reject(error)
+export const register = axios.create({
+    baseURL: 'http://127.0.0.1:8000',
+    headers: {
+        'Content-Type': 'application/json'
     }
-)
+})

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchProfile } from '../actions';
 import ProfileCard from './ProfileCard';
 import TransactionCard from './TransactionCard';
+import StatementCard from './StatementCard';
 
 class Dashboard extends React.Component {
     state = { section: 'default' }
@@ -13,9 +14,9 @@ class Dashboard extends React.Component {
     }
 
     selectedSection() {
-        if (this.state.section === 'fundTransfer') return <TransactionCard profile={this.props.profile} />
+        if (this.state.section === 'fundTransfer') return <TransactionCard profile={this.props.profile}/>
         else if (this.state.section === 'profile') return <ProfileCard profile={this.props.profile} />
-        else if (this.state.section === 'statement') return <div>statement</div>
+        else if (this.state.section === 'statement') return <StatementCard />
         else if (this.state.section === 'updatePic') return <div>Change profile pic</div>
         else if (this.state.section === 'updatePhone') return <div>Change phone number</div>
         else if (this.state.section === 'updateEmail') return <div>Change email id</div>
@@ -67,7 +68,7 @@ class Dashboard extends React.Component {
 
     userCard() {
         return (
-            <div className="card">
+            <div className="card" style={{margin: 10, backgroundImage: 'url(./images/white.jpg)'}}>
                 <div className="card-header">
                     {this.userInfo()}
                 </div>

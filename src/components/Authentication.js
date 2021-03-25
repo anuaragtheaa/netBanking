@@ -2,7 +2,7 @@ import React from 'react';
 
 import LoginCard from './LoginCard';
 import RegistrationCard from './RegistrationCard';
-import './Authentication.css';
+import '../css/Authentication.css';
 
 class Authentication extends React.Component {
     constructor(props) {
@@ -14,10 +14,6 @@ class Authentication extends React.Component {
         if (this.props.match.params.type !== prevProps.match.params.type) {
             this.setState({ login: this.props.match.params.type === 'login' })
         }
-    }
-
-    registrationFormSubmit = formValues => {
-        console.log(formValues)
     }
 
     render() {

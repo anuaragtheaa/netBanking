@@ -28,7 +28,7 @@ class ContactUs extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="card" style={{margin: 10, padding: 10, backgroundImage: 'url(./images/contact.jpg)'}}>
                 <section className="mb-4">
                     <h2 className="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
                     <p className="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.</p>
@@ -87,7 +87,7 @@ class ContactUs extends React.Component {
 const validate = formValues => {
     const errors = {}
 
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     if(!formValues.name) errors.name = 'Required'
     else if(formValues.name.length < 5) errors.name = 'Name too short'

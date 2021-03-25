@@ -6,7 +6,7 @@ class AboutUs extends React.Component {
     render() {
         return (
             <div>
-                <div className="image-aboutus-banner" style={{ marginTop: 70 }}>
+                <div className="image-aboutus-banner" style={{marginTop: 20}}>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
@@ -16,7 +16,7 @@ class AboutUs extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="aboutus-secktion paddingTB60">
+                <div className="aboutus-secktion paddingTB60 card" style={{margin: 10, backgroundImage: 'url(./images/card1.jpg)'}}>
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-md-6">
@@ -29,7 +29,7 @@ class AboutUs extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container team-sektion paddingTB60">
+                <div className="container team-sektion paddingTB60 card" style={{margin: 10, backgroundImage: 'url(./images/card2.jpg)'}}>
                     <div className="row justify-content-center">
                         <div className="site-heading ">
                             <h3>Our Team</h3>

@@ -13,27 +13,29 @@ import Footer from './Footer';
 import history from '../history';
 import { fetchLoginStatus } from '../actions';
 
-class App extends React.Component{
+class App extends React.Component {
     componentDidMount() {
         this.props.fetchLoginStatus()
     }
-    
+
     render() {
         return (
-            <div className="container">
-                <Router history={history}>
-                    <div>
-                        <Header />
-                        <Route path="/" exact component={Home} />
-                        <Route path="/home" exact component={Home} />
-                        <Route path="/auth/:type" exact component={Authentication} />
-                        <Route path="/dashboard" exact component={Dashboard} />
-                        <Route path="/about" exact component={AboutUs} />
-                        <Route path="/map/:find" exact component={GoogleMap} />
-                        <Route path="/contact" exact component={ContactUs} />
-                        <Footer />
-                    </div>
-                </Router>
+            <div style={{backgroundImage: 'url(./images/main.jpg)'}}>
+                <div className="container">
+                    <Router history={history}>
+                        <div>
+                            <Header />
+                            <Route path="/" exact component={Home} />
+                            <Route path="/home" exact component={Home} />
+                            <Route path="/auth/:type" exact component={Authentication} />
+                            <Route path="/dashboard" exact component={Dashboard} />
+                            <Route path="/about" exact component={AboutUs} />
+                            <Route path="/map/:find" exact component={GoogleMap} />
+                            <Route path="/contact" exact component={ContactUs} />
+                            <Footer />
+                        </div>
+                    </Router>
+                </div>
             </div>
         )
     }
@@ -45,4 +47,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect( mapStateToProps, { fetchLoginStatus } )(App);
+export default connect(mapStateToProps, { fetchLoginStatus })(App);
